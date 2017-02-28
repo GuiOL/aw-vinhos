@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout-simples}">
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/pesquisa-vinhos.css}"/>
+</head>
+<body>
+	<section layout:fragment="conteudo">
+		<form th:action="@{/login}" method="POST">
+			<div class="aw-simple-panel">
+				<img alt="AlgaWorks" th:src="@{layout/images/logo-gray.png}"/>
+				
+				<div class="aw-simple-panel__message">
+					Por favor, faça o login.
+				</div>
+				
+				<div class="aw-simple-panel__message  is-error" th:if="${#bools.isTrue(param.error)}">
+					O usuário e/ou senha não conferem.
+				</div>
+				
+				<div class="aw-simple-panel__box">
+					<div class="form-group  has-feedback">
+						<input type="text" class="form-control  input-lg" placeholder="Seu usuário"
+							autofocus="autofocus" name="username"/>
+						<span class="glyphicon  glyphicon-envelope  form-control-feedback" aria-hidden="true"></span>
+					</div>
+					
+					<div class="form-group  has-feedback">
+						<input type="password" class="form-control  input-lg" placeholder="Sua senha" name="password"/>
+						<span class="glyphicon  glyphicon-lock  form-control-feedback" aria-hidden="true"></span>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn  btn-primary  btn-lg  aw-btn-full-width">Entrar</button>
+					</div>
+					
+					<div class="form-group clearfix">
+						<div class="checkbox  pull-left  aw-checkbox-no-margin">
+							<input type="checkbox" id="lembrar"/>
+							<label for="lembrar">Lembre de mim</label>
+						</div>
+						
+						<div class="pull-right">
+							<a href="esqueceu-a-senha.html">Esqueceu a senha?</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="aw-simple-panel__footer">Novo por aqui? <a href="#">Cadastre-se</a>.</div>
+			</div>
+		</form>
+	</section>
+</body>
+</html>
